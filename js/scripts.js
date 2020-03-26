@@ -24,30 +24,16 @@ $(document).ready(function() {
     var number2 = parseInt($("#input2").val());
     var operator = $("input:radio[name=operator]:checked").val();
     var result;
+    
+    if (operator === "add") {
+      result = add(number1, number2);
+    } else if (operator === "subtract") {
+      result = subtract(number1, number2);
+    } else if (operator === "multiply") {
+      result = multiply(number1, number2);
+    } else if (operator === "divide") {
+      result = divide(number1, number2);
+    }
     $("#output").text(result);
-  });
-  
-  $("form#subtract").submit(function(event) {
-    event.preventDefault();
-    var number3 = parseInt($("#subtract3").val());
-    var number4 = parseInt($("#subtract4").val());
-    var result2 = subtract(number3, number4);
-    $("#output2").text(result2);
-  });
-
-  $("form#multiply").submit(function(event) {
-    event.preventDefault();
-    var number5 = parseInt($("#multiply5").val());
-    var number6 = parseInt($("#multiply6").val());
-    var result3 = multiply(number5, number6);
-    $("#output3").text(result3);
-  });
-  
-  $("form#divide").submit(function(event) {
-    event.preventDefault();
-    var number7 = parseInt($("#divide7").val());
-    var number8 = parseInt($("#divide8").val());
-    var result4 = divide(number7, number8);
-    $("#output4").text(result4);
   });
 });
